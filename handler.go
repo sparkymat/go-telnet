@@ -1,5 +1,6 @@
 package telnet
 
+import "net"
 
 // A Handler serves a TELNET (or TELNETS) connection.
 //
@@ -14,5 +15,5 @@ package telnet
 // The Reader's Read method "un-escapes" TELNET (and TELNETS) data, and filters
 // out TELNET (and TELNETS) command sequences.
 type Handler interface {
-	ServeTELNET(Context, Writer, Reader)
+	ServeTELNET(Context, *net.Conn, Writer, Reader)
 }
